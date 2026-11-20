@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ALIAS — A BMFTR-funded project on LLM-based authorship verification in German text</title>
+  <meta name="description" content="ALIAS is a BMFTR-funded research project, carried out with a German law enforcement agency, on using large language models to verify whether two German texts have the same author.">
+  <meta property="og:title" content="ALIAS — A BMFTR-funded project on LLM-based authorship verification in German text">
+  <meta property="og:description" content="A BMFTR-funded research project on LLM-based authorship verification: do two German texts have the same author?">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#f6f4ee" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#131311" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="assets/img/alias-mark.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <script>document.documentElement.classList.add("js");</script>
+  <script defer src="assets/js/data.js"></script>
+  <script defer src="assets/js/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="ALIAS home">
+        <img src="assets/img/alias-mark.svg" alt="" width="36" height="36">
+        <span class="wordmark">ALIAS<small>BMFTR research project</small></span>
+      </a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">Menu <span aria-hidden="true">+</span></button>
+      <nav id="site-nav" aria-label="Main navigation">
+        <a href="#project">The project</a>
+        <a href="#pillars">Research</a>
+        <a href="#people">People</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact" class="nav-contact">Contact <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============================== HERO ============================== -->
+    <section class="hero wrap" id="top">
+      <div class="hero-text">
+        <p class="eyebrow"><i class="dot" aria-hidden="true"></i>Research project · Civil security</p>
+        <h1>A BMFTR-funded project on <span class="hl">LLM-based authorship verification</span> in German text</h1>
+        <p class="hero-lead">Do these two texts have the same author? We study how large language models can answer that for German.</p>
+        <div class="hero-actions">
+          <a class="button" href="#project">About the project <span aria-hidden="true">→</span></a>
+          <a class="text-link" href="#publications">Publications <span aria-hidden="true">↓</span></a>
+        </div>
+        <ul class="hero-pillars" aria-label="Research pillars">
+          <li><a href="#pillars" data-pillar="german" style="--pc: var(--p-german)">01 German</a></li>
+          <li><a href="#pillars" data-pillar="explainability" style="--pc: var(--p-explainability)">02 Explainability</a></li>
+          <li><a href="#pillars" data-pillar="efficiency" style="--pc: var(--p-efficiency)">03 Efficiency</a></li>
+          <li><a href="#pillars" data-pillar="synthetic" style="--pc: var(--p-synthetic)">04 Synthetic data</a></li>
+          <li><a href="#pillars" data-pillar="comparison" style="--pc: var(--p-comparison)">05 LLM vs. traditional</a></li>
+          <li><a href="#pillars" data-pillar="cross-domain" style="--pc: var(--p-cross-domain)">06 Cross-domain</a></li>
+        </ul>
+      </div>
+
+      <figure class="specimen" aria-labelledby="fig1-caption">
+        <div class="specimen-stack">
+          <div class="sheet sheet-main" id="fig1">
+            <div class="sheet-head"><span>Fig. 01</span><span>Same author?</span></div>
+            <!-- Text A | Text B, aligned line by line. Matching features share a colour. -->
+            <div class="align" lang="de">
+              <span class="align-head"><b>Text A</b>known author</span>
+              <span class="align-head"><b>Text B</b>questioned</span>
+
+              <p>Hab's dir doch gesagt<span class="feat" data-f="ellipsis" style="--fc: var(--f-ellipsis)">…</span> <span class="feat" data-f="idiom" style="--fc: var(--f-idiom)">das wird nix</span> mit dem Zug heute.</p>
+              <p>Wie gesagt<span class="feat" data-f="ellipsis" style="--fc: var(--f-ellipsis)">…</span> <span class="feat" data-f="idiom" style="--fc: var(--f-idiom)">das wird nix</span>, der Zug fällt aus.</p>
+
+              <p>Treffen uns um 8 am <span class="feat" data-f="abbr" style="--fc: var(--f-abbr)">Bhf</span>, ok?</p>
+              <p>Bin um 8 am <span class="feat" data-f="abbr" style="--fc: var(--f-abbr)">Bhf</span>, dann sehn wir weiter.</p>
+
+              <p>Bis gleich<span class="feat" data-f="excl" style="--fc: var(--f-excl)">!!</span></p>
+              <p>Bis später<span class="feat" data-f="excl" style="--fc: var(--f-excl)">!!</span></p>
+            </div>
+
+            <ul class="feature-key" aria-label="Shared features and their scores">
+              <li data-f="abbr" style="--fc: var(--f-abbr)"><b lang="de">Bhf</b><span>rare abbreviation</span><i style="--w:.92"></i><em>0.92</em></li>
+              <li data-f="idiom" style="--fc: var(--f-idiom)"><b lang="de">das wird nix</b><span>shared idiom</span><i style="--w:.78"></i><em>0.78</em></li>
+              <li data-f="excl" style="--fc: var(--f-excl)"><b>!!</b><span>doubled exclamation</span><i style="--w:.61"></i><em>0.61</em></li>
+              <li data-f="ellipsis" style="--fc: var(--f-ellipsis)"><b>…</b><span>ellipsis character</span><i style="--w:.55"></i><em>0.55</em></li>
+            </ul>
+
+            <div class="prediction">
+              <span>Verdict</span>
+              <strong>same author</strong>
+              <span class="meter" aria-hidden="true"><i style="--v: 87%"></i></span>
+              <span>0.87</span>
+            </div>
+          </div>
+        </div>
+        <figcaption id="fig1-caption">Illustration: matching style features are colour-coded across both texts and scored by how strongly each supports “same author”. Hover one to isolate it.</figcaption>
+      </figure>
+    </section>
+
+
+    <!-- ============================== 01 PROJECT ============================== -->
+    <section class="section wrap" id="project" aria-labelledby="project-title">
+      <div class="section-label"><span>01 / The project</span><span aria-hidden="true">+</span></div>
+      <div class="project-grid">
+        <div class="project-title">
+          <h2 id="project-title">About <em class="hl">ALIAS</em></h2>
+          <p class="acronym" data-fact="fullName" hidden></p>
+        </div>
+        <div class="prose">
+          <p class="lead">ALIAS studies how LLMs can tell whether two German texts were written by the same author, together with a German law enforcement agency.</p>
+          <blockquote class="original" lang="de">
+            <p>Im BMFTR-geförderten Projekt (Anwender Innovativ: Forschung für die zivile Sicherheit II) untersuchen wir gemeinsam mit einer deutschen Strafverfolgungsbehörde die Zuschreibung und Verifikation von Autorschaft mithilfe von LLMs.</p>
+          </blockquote>
+        </div>
+        <dl class="facts" id="project-facts"></dl>
+      </div>
+    </section>
+
+    <!-- ============================== 02 PILLARS ============================== -->
+    <section class="pillars-section" id="pillars" aria-labelledby="pillars-title">
+      <div class="wrap section">
+        <div class="section-label"><span>02 / Research pillars</span><span aria-hidden="true">+</span></div>
+        <div class="section-heading">
+          <h2 id="pillars-title">Six <em class="hl">pillars</em></h2>
+          <p>Six questions for authorship verification in practice.</p>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Research pillars">
+          <button class="tab" type="button" role="tab" id="tab-german" data-tab="german" aria-controls="panel-german" aria-selected="true" style="--pc: var(--p-german)">
+            <small>01</small><span class="tab-title">German</span><span class="tab-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button class="tab" type="button" role="tab" id="tab-explainability" data-tab="explainability" aria-controls="panel-explainability" aria-selected="false" style="--pc: var(--p-explainability)">
+            <small>02</small><span class="tab-title">Explainability</span><span class="tab-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button class="tab" type="button" role="tab" id="tab-efficiency" data-tab="efficiency" aria-controls="panel-efficiency" aria-selected="false" style="--pc: var(--p-efficiency)">
+            <small>03</small><span class="tab-title">Efficiency</span><span class="tab-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button class="tab" type="button" role="tab" id="tab-synthetic" data-tab="synthetic" aria-controls="panel-synthetic" aria-selected="false" style="--pc: var(--p-synthetic)">
+            <small>04</small><span class="tab-title">Synthetic data</span><span class="tab-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button class="tab" type="button" role="tab" id="tab-comparison" data-tab="comparison" aria-controls="panel-comparison" aria-selected="false" style="--pc: var(--p-comparison)">
+            <small>05</small><span class="tab-title">LLM vs. traditional</span><span class="tab-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button class="tab" type="button" role="tab" id="tab-cross-domain" data-tab="cross-domain" aria-controls="panel-cross-domain" aria-selected="false" style="--pc: var(--p-cross-domain)">
+            <small>06</small><span class="tab-title">Cross-domain</span><span class="tab-arrow" aria-hidden="true">↗</span>
+          </button>
+        </div>
+
+        <!-- Pillar 01 -->
+        <div class="panel" role="tabpanel" id="panel-german" aria-labelledby="tab-german" style="--pc: var(--p-german)">
+          <div class="panel-text">
+            <p class="eyebrow">Pillar 01</p>
+            <h3>German benchmarks</h3>
+            <p>Most authorship research is in English. We build large German benchmarks across platforms, genres and time.</p>
+          </div>
+          <figure class="viz">
+            <div class="viz-head"><span>German benchmarks</span><span>Text pairs</span></div>
+            <div class="bars">
+              <span class="bar-label">GerAV</span><span class="bar-track"><i class="bar" style="--w:1"></i></span><span class="bar-val">400k+</span>
+              <span class="bar-label">AVShift</span><span class="bar-track"><i class="bar" style="--w:.375"></i></span><span class="bar-val">150k+</span>
+            </div>
+            <dl class="bench-facts">
+              <div><dt>GerAV</dt><dd>Twitter and Reddit; message- and profile-based subsets</dd></div>
+              <div><dt>AVShift</dt><dd>Three genres spanning 21 years, including the AI era</dd></div>
+            </dl>
+            <figcaption class="viz-cap">Source: Kiefer et al. (2026).</figcaption>
+          </figure>
+        </div>
+
+        <!-- Pillar 02 -->
+        <div class="panel" role="tabpanel" id="panel-explainability" aria-labelledby="tab-explainability" style="--pc: var(--p-explainability)">
+          <div class="panel-text">
+            <p class="eyebrow">Pillar 02</p>
+            <h3>Checkable evidence</h3>
+            <p>A score alone is not enough. We show which style features support a decision, so investigators can check it.</p>
+          </div>
+          <figure class="viz">
+            <div class="viz-head"><span>Which shared features drove “same author”?</span><span>Score</span></div>
+            <div class="bars feature-bars" lang="de">
+              <span class="bar-label">Bhf</span><span class="bar-track"><i class="bar" style="--w:.92; --bc: var(--f-abbr)"></i></span><span class="bar-val">0.92</span>
+              <span class="bar-label">das wird nix</span><span class="bar-track"><i class="bar" style="--w:.78; --bc: var(--f-idiom)"></i></span><span class="bar-val">0.78</span>
+              <span class="bar-label">!!</span><span class="bar-track"><i class="bar" style="--w:.61; --bc: var(--f-excl)"></i></span><span class="bar-val">0.61</span>
+              <span class="bar-label">…</span><span class="bar-track"><i class="bar" style="--w:.55; --bc: var(--f-ellipsis)"></i></span><span class="bar-val">0.55</span>
+            </div>
+            <figcaption class="viz-cap">Illustration: the features from Fig. 01.</figcaption>
+          </figure>
+        </div>
+
+        <!-- Pillar 03 -->
+        <div class="panel" role="tabpanel" id="panel-efficiency" aria-labelledby="tab-efficiency" style="--pc: var(--p-efficiency)">
+          <div class="panel-text">
+            <p class="eyebrow">Pillar 03</p>
+            <h3>Worth the cost?</h3>
+            <p>LLMs are the most accurate, but costly. We measure when their gains justify the compute.</p>
+          </div>
+          <figure class="viz">
+            <div class="viz-head"><span>Measured savings</span><span>Baseline = 100</span></div>
+            <p class="cost-title">Training memory</p>
+            <div class="bars compact">
+              <span class="bar-label">Baseline</span><span class="bar-track"><i class="bar base" style="--w:1"></i></span><span class="bar-val">100</span>
+              <span class="bar-label">QLoRA</span><span class="bar-track"><i class="bar" style="--w:.45"></i></span><span class="bar-val">45</span>
+            </div>
+            <p class="cost-note">−55% memory at comparable F1</p>
+            <p class="cost-title">Inference latency</p>
+            <div class="bars compact">
+              <span class="bar-label">Baseline</span><span class="bar-track"><i class="bar base" style="--w:1"></i></span><span class="bar-val">100</span>
+              <span class="bar-label">Token pruning</span><span class="bar-track"><i class="bar" style="--w:.62"></i></span><span class="bar-val">62</span>
+            </div>
+            <p class="cost-note">−38% latency, 97.8% of F1 kept</p>
+            <p class="cost-callout">Long documents: 7.4–9.3× the latency for only +0.02–0.03 F1.</p>
+            <figcaption class="viz-cap">Source: Bhatia et al. (2026).</figcaption>
+          </figure>
+        </div>
+
+        <!-- Pillar 04 -->
+        <div class="panel" role="tabpanel" id="panel-synthetic" aria-labelledby="tab-synthetic" style="--pc: var(--p-synthetic)">
+          <div class="panel-text">
+            <p class="eyebrow">Pillar 04</p>
+            <h3>Shareable data</h3>
+            <p>Case data is confidential. We study when synthetic German text can replace it for training and testing.</p>
+          </div>
+          <figure class="viz">
+            <div class="viz-head"><span>From seed to training data</span><span>Texts</span></div>
+            <ol class="pipeline">
+              <li><span class="stage">Seed</span><span class="docs"><i class="doc"></i><i class="doc"></i><i class="doc"></i></span><span class="stage-n">3</span></li>
+              <li><span class="stage">Generate</span><span class="docs"><i class="doc syn"></i><i class="doc syn"></i><i class="doc syn"></i><i class="doc syn"></i><i class="doc syn"></i><i class="doc syn"></i><i class="doc syn"></i><i class="doc syn"></i><i class="doc syn"></i></span><span class="stage-n">9</span></li>
+              <li><span class="stage">Filter</span><span class="docs"><i class="doc syn"></i><i class="doc out"></i><i class="doc syn"></i><i class="doc syn"></i><i class="doc out"></i><i class="doc syn"></i><i class="doc syn"></i><i class="doc syn"></i><i class="doc out"></i></span><span class="stage-n">6</span></li>
+              <li><span class="stage">Audit</span><span class="docs"><i class="doc ok"></i><i class="doc ok"></i><i class="doc ok"></i><i class="doc ok"></i><i class="doc ok"></i><i class="doc ok"></i></span><span class="stage-n">6 ✓</span></li>
+            </ol>
+            <div class="legend" aria-hidden="true"><span><i class="doc"></i> real</span><span><i class="doc syn"></i> synthetic</span><span><i class="doc out"></i> discarded</span></div>
+            <figcaption class="viz-cap">Illustration: generate, filter, audit.</figcaption>
+          </figure>
+        </div>
+        <!-- Pillar 05 -->
+        <div class="panel" role="tabpanel" id="panel-comparison" aria-labelledby="tab-comparison" style="--pc: var(--p-comparison)">
+          <div class="panel-text">
+            <p class="eyebrow">Pillar 05</p>
+            <h3>When do LLMs win?</h3>
+            <p>We compare LLM-based methods with traditional authorship methods on the same benchmarks, to see where each one wins.</p>
+          </div>
+          <figure class="viz">
+            <div class="viz-head"><span>Head to head</span><span>4 benchmarks</span></div>
+            <div class="versus-wrap">
+              <table class="versus">
+                <thead>
+                  <tr><th scope="col"><span class="sr-only">Criterion</span></th><th scope="col"><b>LLM-based</b>10 models</th><th scope="col"><b>Traditional</b>11 methods</th></tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">Accuracy</th><td class="win">+10–19 F1</td><td>lower</td></tr>
+                  <tr><th scope="row">Short texts</th><td class="win">better trade-off</td><td>weaker</td></tr>
+                  <tr><th scope="row">Long texts</th><td>little gain</td><td class="win">competitive</td></tr>
+                  <tr><th scope="row">Compute cost</th><td>higher</td><td class="win">lower</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <figcaption class="viz-cap"><i class="win-dot" aria-hidden="true"></i> Stronger side. Source: Bhatia et al. (2026).</figcaption>
+          </figure>
+        </div>
+        <!-- Pillar 06 -->
+        <div class="panel" role="tabpanel" id="panel-cross-domain" aria-labelledby="tab-cross-domain" style="--pc: var(--p-cross-domain)">
+          <div class="panel-text">
+            <p class="eyebrow">Pillar 06</p>
+            <h3>Beyond the training data</h3>
+            <p>Real cases rarely look like the training data. We test how verification holds up when the genre, topic or time period changes.</p>
+          </div>
+          <figure class="viz">
+            <div class="viz-head"><span>Distribution shift</span><span>Effect</span></div>
+            <ul class="shifts">
+              <li class="drop"><b>Time</b><span class="shift-n">21 years</span><span class="shift-fx">One of the strongest drops</span></li>
+              <li class="robust"><b>Genre</b><span class="shift-n">3 genres</span><span class="shift-fx">Fine-tuned LLMs generalise best</span></li>
+              <li class="none"><b>AI era</b><span class="shift-n">pre/post LLM</span><span class="shift-fx">No measurable shift</span></li>
+            </ul>
+            <figcaption class="viz-cap">AVShift: 150k+ German text pairs. Source: Kiefer et al. (2026).</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== 03 PEOPLE ============================== -->
+    <section class="section wrap" id="people" aria-labelledby="people-title">
+      <div class="section-label"><span>03 / Project team</span><span aria-hidden="true">+</span></div>
+      <div class="section-heading">
+        <h2 id="people-title">Project <em class="hl">team</em></h2>
+        <p>Based at the University of Technology Nuremberg.</p>
+      </div>
+      <!-- Rendered from assets/js/data.js → people -->
+      <div id="people-groups"></div>
+    </section>
+
+    <!-- ============================== 04 PUBLICATIONS ============================== -->
+    <section class="publications-section" id="publications" aria-labelledby="pubs-title">
+      <div class="wrap section">
+        <div class="section-label"><span>04 / Publications</span><span aria-hidden="true">+</span></div>
+        <div class="section-heading">
+          <h2 id="pubs-title"><em class="hl">Publications</em></h2>
+          <p>Papers, benchmarks and code.</p>
+        </div>
+        <div class="pub-filters" id="pub-filters" role="group" aria-label="Filter publications by pillar"></div>
+        <!-- Rendered from assets/js/data.js → publications -->
+        <div id="pub-list" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- ============================== 05 CONTACT ============================== -->
+    <section class="contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="wrap contact-inner">
+        <div>
+          <p class="eyebrow">05 / Contact</p>
+          <h2 id="contact-title">Get in <em class="hl">touch</em></h2>
+          <p>For questions and collaborations.</p>
+        </div>
+        <div class="contact-links" id="contact-links"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap site-footer">
+    <div class="footer-main">
+      <a class="brand" href="#top" aria-label="ALIAS, back to top">
+        <img src="assets/img/alias-mark.svg" alt="" width="36" height="36">
+        <span class="wordmark">ALIAS<small>BMFTR research project</small></span>
+      </a>
+      <p>A BMFTR-funded project on LLM-based authorship verification in German text.</p>
+      <a class="text-link" href="#top">Back to top <span aria-hidden="true">↑</span></a>
+    </div>
+    <div class="footer-bottom">
+      <span id="funding-line">Funded by the BMFTR</span>
+      <span>© <span id="year">2026</span> ALIAS project</span>
+      <a href="assets/img/alias-mark.svg" download="alias-mark.svg">Download logo ↓</a>
+    </div>
+  </footer>
+</body>
+</html>
