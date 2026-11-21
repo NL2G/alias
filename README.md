@@ -4,7 +4,7 @@ A static, single-page site for the ALIAS research project. There is no build ste
 
 ```
 index.html              page structure and prose (hero, about, research pillars)
-assets/css/style.css    all styling (light and dark mode)
+assets/css/style.css    all styling (white, light-only theme)
 assets/js/data.js       ← content you will edit most: facts, people, publications, contacts
 assets/js/main.js       renders data.js and handles tabs, filters and BibTeX
 assets/img/alias-mark.svg  logo and favicon
