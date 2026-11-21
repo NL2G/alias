@@ -4,18 +4,18 @@
    ========================================================================= */
 
 :root {
-  --paper: #ffffff;
-  --paper-2: #f4f5f7;
+  --paper: #edf7ef;
+  --paper-2: #e1f0e5;
   --card: #ffffff;
   --ink: #1a1b1e;
   --ink-2: #3a3c42;
-  --muted: #61646b;
-  --line: #e2e4e8;
+  --muted: #5a645d;
+  --line: #cde0d2;
   --accent: #b3261e;
   --hl: rgba(245, 196, 40, .55);
   --hl-solid: #f2c230;
   --heat: 236 170 18;
-  --band: #e4f3e8;
+  --band: #d3e9d9;
   --on-band: #14301f;
   --p-german: #3b4a8c;
   --f-abbr: #0e7a5a;
@@ -233,7 +233,7 @@ h1 {
 .specimen-stack { position: relative; padding: 0 10px 10px 0; }
 .specimen-stack::before {
   content: ""; position: absolute; inset: 10px 0 0 10px;
-  background: var(--paper-2);
+  background: var(--card);
   border: 1px solid var(--line); border-radius: 6px;
   transform: rotate(1.2deg);
 }
@@ -459,7 +459,7 @@ h2 {
   align-self: start;
   display: flex; flex-direction: column; gap: 16px;
   padding: 20px 22px;
-  background: var(--paper);
+  background: var(--card);
   border: 1px solid var(--line); border-radius: 6px;
 }
 .viz-head {
