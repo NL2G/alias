@@ -4,19 +4,19 @@
    ========================================================================= */
 
 :root {
-  --paper: #f6f4ee;
-  --paper-2: #eeebe2;
-  --card: #fbfaf7;
-  --ink: #1c1c1a;
-  --ink-2: #3b3a36;
-  --muted: #67665e;
-  --line: #d9d5c9;
+  --paper: #ffffff;
+  --paper-2: #f4f5f7;
+  --card: #ffffff;
+  --ink: #1a1b1e;
+  --ink-2: #3a3c42;
+  --muted: #61646b;
+  --line: #e2e4e8;
   --accent: #b3261e;
   --hl: rgba(245, 196, 40, .55);
   --hl-solid: #f2c230;
   --heat: 236 170 18;
   --band: #1c1c1a;
-  --on-band: #f6f4ee;
+  --on-band: #ffffff;
   --p-german: #3b4a8c;
   --f-abbr: #0e7a5a;
   --f-idiom: #b0236e;
