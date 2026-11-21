@@ -69,6 +69,13 @@ window.ALIAS_DATA = {
     {
       group: "team",
       title: "Dr.",
+      name: "Elena Schmidt",
+      role: "Principal investigator",
+      photo: null,
+    },
+    {
+      group: "team",
+      title: "Dr.",
       name: "Yamen Ajjour",
       role: "Postdoctoral researcher",
       affiliation: "UTN",
@@ -102,12 +109,6 @@ window.ALIAS_DATA = {
       links: [
         { label: "UTN profile", url: "https://www.utn.de/person/lotta-kiefer/" },
       ],
-    },
-    {
-      group: "team",
-      title: "Dr.",
-      name: "Elena Schmidt",
-      photo: null,
     },
     {
       group: "team",
