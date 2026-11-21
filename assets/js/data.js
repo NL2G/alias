@@ -106,6 +106,12 @@ window.ALIAS_DATA = {
     {
       group: "team",
       title: "Dr.",
+      name: "Elena Schmidt",
+      photo: null,
+    },
+    {
+      group: "team",
+      title: "Dr.",
       name: "Sotaro Takeshita",
       role: "Former postdoctoral researcher",
       affiliation: "UTN",
