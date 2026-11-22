@@ -69,13 +69,6 @@ window.ALIAS_DATA = {
     {
       group: "team",
       title: "Dr.",
-      name: "Elena Schmidt",
-      role: "Principal investigator",
-      photo: null,
-    },
-    {
-      group: "team",
-      title: "Dr.",
       name: "Yamen Ajjour",
       role: "Postdoctoral researcher",
       affiliation: "UTN",
@@ -123,6 +116,13 @@ window.ALIAS_DATA = {
         { label: "Website", url: "https://sotaro.io/about" },
         { label: "GitHub", url: "https://github.com/sobamchan" },
       ],
+    },
+    {
+      group: "team",
+      title: "Dr.",
+      name: "Elena Schmidt",
+      role: "Principal investigator",
+      photo: null,
     },
   ],
 
