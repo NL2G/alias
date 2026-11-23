@@ -15,7 +15,7 @@ window.ALIAS_DATA = {
     fullName: "LLM-based authorship verification in German text",   // shown under "About ALIAS"; hidden when empty
     funder: "Federal Ministry of Research, Technology and Space (BMFTR)",
     funderShort: "BMFTR",
-    programme: "Anwender Innovativ: Forschung für die zivile Sicherheit II",
+    programme: "",                // funding programme; hidden when empty
     partners: [
       "University of Technology Nuremberg (UTN)",
       "A German law enforcement agency",
