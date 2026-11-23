@@ -13,32 +13,12 @@
   const ext = (url, label) =>
     `<a class="text-link" href="${esc(url)}" target="_blank" rel="noopener">${esc(label)} <span aria-hidden="true">↗</span></a>`;
 
-  /* ---------------- Project facts ---------------- */
-  function renderFacts() {
-    $$("[data-fact]").forEach((el) => {
-      const value = P[el.dataset.fact];
-      if (value) {
-        el.textContent = value;
-        el.hidden = false;
-      }
-    });
-
-    const dl = $("#project-facts");
-    if (!dl) return;
-    const rows = [
-      ["Funded by", esc(P.funder)],
-      ["Programme", P.programme ? `<span lang="de">${esc(P.programme)}</span>` : ""],
-      ["Partners", (P.partners || []).map(esc).join("<br>")],
-      ["Research period", esc(P.period)],
-      ["Grant reference", P.grantUrl ? `<a href="${esc(P.grantUrl)}" target="_blank" rel="noopener">${esc(P.grant)} ↗</a>` : esc(P.grant)],
-    ].filter(([, v]) => v);
-    dl.innerHTML = rows.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${v}</dd></div>`).join("");
-
+  /* ---------------- Funding line (footer) ---------------- */
+  function renderFunding() {
     const funding = $("#funding-line");
-    if (funding) {
-      const funder = P.funderShort || P.funder;
-      funding.textContent = [funder && `Funded by the ${funder}`, P.programme, P.grant].filter(Boolean).join(" · ");
-    }
+    if (!funding) return;
+    const funder = P.funderShort || P.funder;
+    funding.textContent = [funder && `Funded by the ${funder}`, P.grant].filter(Boolean).join(" · ");
   }
 
   /* ---------------- People ---------------- */
@@ -474,7 +454,7 @@
   }
 
   /* ---------------- Boot ---------------- */
-  renderFacts();
+  renderFunding();
   renderPeople();
   renderFilters();
   renderPubs();

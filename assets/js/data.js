@@ -9,20 +9,12 @@
    ========================================================================= */
 
 window.ALIAS_DATA = {
-  /* ---------- Project facts (shown in "01 / The project" and the footer) ---------- */
+  /* ---------- Project facts (shown in the footer) ---------- */
   project: {
     name: "ALIAS",
-    fullName: "LLM-based authorship verification in German text",   // shown under "About ALIAS"; hidden when empty
     funder: "Federal Ministry of Research, Technology and Space (BMFTR)",
-    funderShort: "BMFTR",
-    programme: "",                // funding programme; hidden when empty
-    partners: [
-      "University of Technology Nuremberg (UTN)",
-      "A German law enforcement agency",
-    ],
-    period: "",                   // e.g. "2025 – 2028"; hidden when empty
+    funderShort: "BMFTR",         // footer: "Funded by the BMFTR"
     grant: "",                    // grant reference (Förderkennzeichen); hidden when empty
-    grantUrl: "",                 // link to the grant record, optional
   },
 
   /* ---------- Research pillars (ids are used by publications) ---------- */

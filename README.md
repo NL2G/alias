@@ -21,14 +21,14 @@ python3 -m http.server 8000
 
 Almost everything that changes over time lives in **`assets/js/data.js`**:
 
-- **`project`**: funder, funding programme, partners, and optionally the research period, grant reference (with link) and `fullName` (what the acronym stands for). Empty fields are hidden.
+- **`project`**: the funder (shown in the footer) and optionally a grant reference. Empty fields are hidden.
 - **`people`**: each person has a `group` (`team`, `pi`, `researcher`, `associate`, `alumni`). Groups with no members are hidden, and with only one group its heading is left out. Put portraits in `assets/img/people/` and set `photo: "assets/img/people/name.jpg"`; leave it `null` to show initials.
 - **`publications`**: sorted by `date` and grouped by year automatically. Tag each one with one or more `pillars` so the filter chips work. BibTeX is generated from the fields; paste a `bibtex` string to override it. Authors whose names match a team member are highlighted.
 - **`contacts`**: the mail links in the Contact section.
 
 Entries with `placeholder: true` show a red **Placeholder** tag. Delete that line once an entry is real.
 
-The longer prose (hero text, "About ALIAS", the six pillar descriptions and their figures) is in `index.html`.
+The longer prose (hero text, the six pillar descriptions and their figures) is in `index.html`.
 
 ## Deploy on GitHub Pages
 
